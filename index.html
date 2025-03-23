@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localizador de Localização no Mapa</title>
+    <title>Localização Automática</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,8 +19,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API"></script>
 </head>
 <body>
-    <h1>Bem-vindo ao Localizador de Localização</h1>
-    <button id="getLocationBtn">Obter Minha Localização</button>
+    <h1>Localização Automática</h1>
     <div id="map"></div>
 
     <script>
@@ -32,15 +31,14 @@
                 zoom: 6,
             });
             infoWindow = new google.maps.InfoWindow();
-        }
 
-        document.getElementById('getLocationBtn').addEventListener('click', function() {
+            // Tenta obter a localização do usuário
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
             } else {
                 alert("A Geolocalização não é suportada por este navegador.");
             }
-        });
+        }
 
         function showPosition(position) {
             const pos = {
@@ -48,7 +46,7 @@
                 lng: position.coords.longitude,
             };
             infoWindow.setPosition(pos);
-            infoWindow.setContent("Localização encontrada.");
+            infoWindow.setContent("Você está aqui.");
             infoWindow.open(map);
             map.setCenter(pos);
         }
