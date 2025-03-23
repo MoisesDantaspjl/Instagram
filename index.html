@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-    <h1>A perte o botão para começar </h1>
+    <h1>Welcome to the Location Tracker</h1>
     <button id="getLocationBtn">Get My Location</button>
     <div id="location"></div>
 
@@ -39,7 +39,7 @@
         function showError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    document.getElementById('location').innerHTML = "User  denied the request for Geolocation.";
+                    document.getElementById('location').innerHTML = "User denied the request for Geolocation.";
                     break;
                 case error.POSITION_UNAVAILABLE:
                     document.getElementById('location').innerHTML = "Location information is unavailable.";
